@@ -9,6 +9,15 @@ const empShow = async (req, resp) => {
   }
 };
 
+const getUpdate = async (req, resp) => {
+  try {
+    const emp = await empModel.findById(req.params.id);
+    resp.render("edit", { emp: emp });
+  } catch (error) {
+    console.log(error);
+  }
+};
+
 const empInsert = async (req, resp) => {
   try {
     const data = new empModel({
@@ -37,4 +46,4 @@ const empDelete = async (req, resp) => {
   } catch (error) {}
 };
 
-module.exports = { empShow, empInsert, empUpdate, empDelete };
+module.exports = { empShow, empInsert, empUpdate, empDelete, getUpdate };

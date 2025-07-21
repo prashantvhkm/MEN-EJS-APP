@@ -2,10 +2,13 @@ const connentDB = require("./db/db");
 const express = require("express");
 const router = require("./router/rout");
 
+// app.js or server.js
+const methodOverride = require("method-override");
+
 connentDB();
 
 const app = express();
-
+app.use(methodOverride("_method"));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 

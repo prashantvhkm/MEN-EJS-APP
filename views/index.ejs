@@ -68,24 +68,21 @@
               <tbody>
                 <% ss.forEach((emp)=>{ %>
                 <tr class="">
-                  <td><%= emp._id%></td>
                   <td><%= emp.name%></td>
 
                   <td><%= emp.salary%></td>
                   <td>
                     <a
-                      name=""
-                      id=""
                       class="btn btn-primary"
-                      href=""
-                      role="button"
-                      >update</a
+                      href="/getupdate/<%= emp._id %>?_method=GET"
                     >
-                    ||
+                      Update
+                    </a>
+
+                    > ||
                     <form
-                      action="/delete/:<%= emp._id %>?_method=DELETE"
-                      method="post"
-                      style="display: inline"
+                      action="/delete/<%= emp._id %>?_method=DELETE"
+                      method="POST"
                     >
                       <button type="submit" class="btn btn-danger btn-sm">
                         Delete
